@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
-import 'package:to_do_list_app/new_task.dart';
 import 'package:to_do_list_app/model/task.dart';
+import 'package:to_do_list_app/new_task.dart';
+
+import 'package:to_do_list_app/task_list.dart';
 
 class TodoList extends StatefulWidget{
   const TodoList({super.key});
@@ -23,18 +24,15 @@ class _TodoList extends State<TodoList>{
   showModalBottomSheet(context: context, builder: (ctx)=>new NewTask());
 }
 
-final List<Task> _tasks = [
+final List<Task> _registeredTasks = [
     Task(title: "Vásárlás", deadLine: DateTime.now().add(Duration(days: 1))),
     Task(title: "Futás", deadLine: DateTime.now().add(Duration(days: 2))),
     Task(title: "Tanulás Flutterhez", deadLine: DateTime.now().add(Duration(days: 3))),
   ];
 
-  void _updateTask(Task updatedTask) {
+  void _toggleTask(Task updatedTask) {
     setState(() {
-      final index = _tasks.indexWhere((task) => task.id == updatedTask.id);
-      if (index != -1) {
-        _tasks[index] = updatedTask;
-      }
+      
     });
   }
 
@@ -43,15 +41,14 @@ final List<Task> _tasks = [
   Widget build(BuildContext context) {
   return  Scaffold(
     appBar: AppBar(
-      title: const Text("Feladatok"),
+      title: const Text("ToDoApp"),
       actions: [
         IconButton(onPressed: _openAddTrack, icon: const Icon(Icons.add))
       ],
     ),
-    body: const Column(children: [
-      Text("Category"),
-      Text("ToDoList")
-
+    body: Column(children: [
+      const Text("Feladatok"),
+      Expanded(child: TaskList(tasks: _registeredTasks, onTaskToggled: _toggleTask))
     ],),
    );
     
