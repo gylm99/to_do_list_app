@@ -48,7 +48,7 @@ final List<Task> _registeredTasks = [
     ),
     body: Column(children: [
       const Text("Feladatok"),
-      Expanded(child: TaskList(tasks: _registeredTasks, onTaskToggled: _toggleTask))
+      Expanded(child: TaskList(tasks: _registeredTasks, onTaskToggled: _toggleTask, onTaskAdded: (Task ) {  },))
     ],),
    );
     
