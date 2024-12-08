@@ -64,6 +64,16 @@ class _NewTrack extends State<NewTask>{
    
     return(const Padding(
       padding:  EdgeInsets.all(16),
+      child: Column(
+        children: [
+          TextField(
+            maxLength: 60,
+            decoration: InputDecoration(
+              label: Text('Task')
+            ),
+          )
+        ],
+      ),
     ));
   }
 }
