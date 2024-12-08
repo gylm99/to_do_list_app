@@ -36,6 +36,14 @@ class _NewTaskState extends State<NewTask> {
                   return null;
                 },
               ),
+
+              const TextField(
+                maxLength: 60,
+                decoration: InputDecoration(
+                label: Text('Task')
+                )
+              ),
+
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
