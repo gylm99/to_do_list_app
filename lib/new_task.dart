@@ -9,7 +9,6 @@ class NewTask extends StatefulWidget{
     return _NewTaskState();
     //return _NewTrack();
   }
-
 }
 
 class _NewTaskState extends State<NewTask> {

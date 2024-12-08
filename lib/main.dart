@@ -7,7 +7,4 @@ void main() {
       home: TodoList(),
     )
   );
-
-
-  
 }

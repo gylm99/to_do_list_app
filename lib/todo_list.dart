@@ -28,7 +28,6 @@ final List<Task> _registeredTasks = [
 
   void _toggleTask(Task updatedTask) {
     setState(() {
-      
     });
   }
 
@@ -49,5 +48,4 @@ final List<Task> _registeredTasks = [
    );
     
   }
-
 }

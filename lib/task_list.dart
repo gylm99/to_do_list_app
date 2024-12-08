@@ -19,7 +19,6 @@ class TaskList extends StatefulWidget {
 
   @override
   _TaskListState createState() => _TaskListState();
-
 }
 
 class _TaskListState extends State<TaskList> {
