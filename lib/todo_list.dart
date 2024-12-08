@@ -21,13 +21,13 @@ class TodoList extends StatefulWidget{
 class _TodoList extends State<TodoList>{
 
   void _openAddTrack(){
-  showModalBottomSheet(context: context, builder: (ctx)=>new NewTask());
+  showModalBottomSheet(context: context, builder: (ctx)=>const NewTask());
 }
 
 final List<Task> _registeredTasks = [
-    Task(title: "Vásárlás", deadLine: DateTime.now().add(Duration(days: 1))),
-    Task(title: "Futás", deadLine: DateTime.now().add(Duration(days: 2))),
-    Task(title: "Tanulás Flutterhez", deadLine: DateTime.now().add(Duration(days: 3))),
+    Task(title: "Vásárlás", deadLine: DateTime.now().add(const Duration(days: 1))),
+    Task(title: "Futás", deadLine: DateTime.now().add(const Duration(days: 2))),
+    Task(title: "Tanulás Flutterhez", deadLine: DateTime.now().add(const Duration(days: 3))),
   ];
 
   void _toggleTask(Task updatedTask) {
