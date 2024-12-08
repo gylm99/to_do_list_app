@@ -9,13 +9,9 @@ class TodoList extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-
     return _TodoList();
   }
-
-  
 }
-
 
 
 class _TodoList extends State<TodoList>{
@@ -48,7 +44,7 @@ final List<Task> _registeredTasks = [
     ),
     body: Column(children: [
       const Text("Feladatok"),
-      Expanded(child: TaskList(tasks: _registeredTasks, onTaskToggled: _toggleTask, onTaskAdded: (Task ) {  },))
+      Expanded(child: TaskList(tasks: _registeredTasks, onTaskToggled: _toggleTask, onTaskAdded: (Task ) {  }, onTaskDeleted: (Task ) {  },))
     ],),
    );
     

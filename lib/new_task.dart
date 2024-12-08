@@ -44,7 +44,8 @@ class _NewTaskState extends State<NewTask> {
                     // Visszatérés az újonnan létrehozott feladat objektummal.
                     Navigator.pop(context, Task(title: _taskController.text,
                         isDone: false,
-                        deadLine: DateTime.now()));
+                        deadLine: DateTime.now())
+                    );
                   }
                 },
                 child: const Text('Feladat hozzáadása'),
