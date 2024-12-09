@@ -36,13 +36,13 @@ final List<Task> _registeredTasks = [
   Widget build(BuildContext context) {
   return  Scaffold(
     appBar: AppBar(
-      title: const Text("ToDoApp"),
+      title: const Text("Feladatok"),
       actions: [
         IconButton(onPressed: _openAddTrack, icon: const Icon(Icons.add))
       ],
     ),
     body: Column(children: [
-      const Text("Feladatok"),
+      //const Text("Feladatok"),
       Expanded(child: TaskList(tasks: _registeredTasks, onTaskToggled: _toggleTask, onTaskAdded: (Task ) {  }, onTaskDeleted: (Task ) {  },))
     ],),
    );

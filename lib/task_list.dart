@@ -38,7 +38,7 @@ class _TaskListState extends State<TaskList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('Feladatok')
+         // title: const Text('Feladatok')
       ),
       body: ListView.builder(
         itemCount: widget.tasks.length,
