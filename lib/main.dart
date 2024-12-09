@@ -18,29 +18,33 @@ class MyApp extends StatelessWidget {
           seedColor: Colors.cyan[600]!,
           brightness: Brightness.light,
         ).copyWith(
+          surface: Colors.cyan[50],
           primary: Colors.cyan[600],
           secondary: Colors.tealAccent,
-          surface:  Colors.cyan[50],
-          error: Colors.deepOrangeAccent,
-        ),
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          backgroundColor: Colors.cyan,
-          foregroundColor: Colors.white, // Fehér szöveg az AppBar-ban
-          centerTitle: true,
         ),
         scaffoldBackgroundColor: Colors.cyan[50],
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Colors.tealAccent,
           foregroundColor: Colors.black,
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.tealAccent,
-            foregroundColor: Colors.black,
-          ),
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.cyan[900]!,
+          brightness: Brightness.dark,
+        ).copyWith(
+          surface: Colors.grey[850],
+          primary: Colors.cyan[900],
+          secondary: Colors.teal[300],
+        ),
+        scaffoldBackgroundColor: Colors.grey[850],
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.teal[300],
+          foregroundColor: Colors.white,
         ),
       ),
+      themeMode: ThemeMode.system, // Automatikusan vált a rendszer beállítása alapján
       home: const TodoList(),
     );
   }
