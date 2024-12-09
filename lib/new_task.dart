@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:to_do_list_app/model/task.dart';
 
 class NewTask extends StatefulWidget{
@@ -14,6 +15,25 @@ class NewTask extends StatefulWidget{
 class _NewTaskState extends State<NewTask> {
   final _formKey = GlobalKey<FormState>();
   final _taskController = TextEditingController();
+    DateTime? _selectedDate;
+     final formatter = DateFormat.yMd();
+
+
+
+
+
+void _presentDatePicker() async {
+  final now = DateTime.now();
+  final lastDate = DateTime(now.year+1, now.month, now.day);
+  final pickedDate = await showDatePicker(
+        context: context, firstDate: now, lastDate: lastDate);
+
+
+     setState(() {
+      _selectedDate = pickedDate;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +57,36 @@ class _NewTaskState extends State<NewTask> {
                 },
               ),
 
-              const TextField(
+                 Expanded(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(_selectedDate == null
+                      ? 'No date selected'
+                      : formatter
+                          .format(_selectedDate!)), // kell a felkiáltó jel
+                  IconButton(
+                      onPressed: _presentDatePicker,
+                      icon: const Icon(Icons.calendar_month))
+                ],
+              )),
+
+           /*   const TextField(
                 maxLength: 60,
                 decoration: InputDecoration(
                 label: Text('Task')
                 )
-              ),
+              ),*/
 
-              const SizedBox(height: 20),
+             const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Visszatérés az újonnan létrehozott feladat objektummal.
                     Navigator.pop(context, Task(title: _taskController.text,
                         isDone: false,
-                        deadLine: DateTime.now())
+                        deadLine: _selectedDate!)
                     );
                   }
                 },
